@@ -1,5 +1,5 @@
 
-module Geometric (geo, geo', (%)) where
+module Geometric (geo, geo') where
 
 import qualified Data.Ratio as R
 
@@ -22,9 +22,6 @@ instance Fractional Geo where
 
 instance RealFrac Geo where
   properFraction (Geo a)    = case properFraction a of (i, f) -> (i, Geo f)
-
-(%) :: (Integral a) => a -> a -> Geo
-a % b = Geo ((toInteger a) R.% (toInteger b))
 
 tmap2 :: (a -> b) -> (a, a) -> (b, b)
 tmap2 f (x, y) = (f x, f y)
